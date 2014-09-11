@@ -15,6 +15,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+	
+	/**
+	 * config timestamps false
+	 * 
+	 * @var string
+	 */
+	public $timestamps = false;
+	
+	/**
+	 * relasi dengan profiles
+	 *
+	 * @function
+	 */
+	public function profile()
+	{
+		return $this->hasOne('Profile','id');
+	}
 
 	/**
 	 * The attributes excluded from the model's JSON form.

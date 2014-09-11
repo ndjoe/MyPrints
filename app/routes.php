@@ -11,4 +11,4 @@
 |
 */
 
-Route::controller('users', 'UserController');
+Route::controller('/', 'UserController');

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPrints</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <?php echo HTML::style('packages/Flat-UI-master/dist/css/flat-ui.min.css'); ?>
+
+    <?php echo HTML::style('packages/Flat-UI-master/dist'); ?>
+
+    <?php echo HTML::style('css/main.css'); ?>
+
+    
+  </head>
+ 
+  <body>
+ <div class="container">
+    <?php if(!Auth::check()): ?>
+    <nav class="navbar navbar-fixed-top" role='navigation'>
+        <div class="container">
+            <ul class="nav navbar-nav">  
+                <li><?php echo HTML::link('/register', 'Register'); ?></li>   
+                <li><?php echo HTML::link('/login', 'Login'); ?></li>
+                <li><?php echo HTML::link('/logout','Logout'); ?></li>
+            </ul>  
+        </div>
+    </nav>
+    <?php endif; ?>
+        <?php if(Session::has('message')): ?>
+            <p class="alert"><?php echo Session::get('message'); ?></p>
+        <?php endif; ?>
+    <?php echo $content; ?>
+
+    </div>
+</body>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="packages/Flat-UI-master/dis/js/flat-ui.min.js"></script>
+</html>
